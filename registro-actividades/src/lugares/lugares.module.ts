@@ -6,7 +6,7 @@ import {MongooseModule} from '@nestjs/mongoose';
 import {LugaresSchema} from './schemas/lugares.schemas';
 
 @Module({
-  //creacion de la entidad platos dentro de mongodb.
+  //creacion de la entidad lugares dentro de mongodb.
   imports: [
     MongooseModule.forFeature([
       {name:'Lugares',schema: LugaresSchema}

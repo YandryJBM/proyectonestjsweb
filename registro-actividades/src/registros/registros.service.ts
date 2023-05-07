@@ -5,7 +5,7 @@ import {InjectModel} from '@nestjs/mongoose';
 import {Registros} from './interfaces/registros.interfaces';//contiene los atributos modelos a usar
 import {CreateRegistroDTO} from './dto/registros.dto';
 
-//clase que sera usada dentro de controlador de paciente, para el uso de las peticiones.
+//clase que sera usada dentro de controlador de persona, para el uso de las peticiones.
 @Injectable()
 export class RegistrosService {
     constructor(@InjectModel('Registros')private readonly registrosModel: Model<Registros> ){}

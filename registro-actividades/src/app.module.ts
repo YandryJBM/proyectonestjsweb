@@ -9,7 +9,7 @@ import { PersonasModule } from './personas/personas.module';
 
 //modulo priincipal contiene la URL de la base de datos de mongodb atlas.
 @Module({
-  //importacion de cada modulo de las entidades creada, PLATOS, PACIENTE,REGISTRO
+  //importacion de cada modulo de las entidades creada, lugares, persona,REGISTRO
   //conexion a la base de datos mongodb atlas.
   imports: [LugaresModule,MongooseModule.forRoot('mongodb+srv://enderyancraft:yandry@cluster0.9zsqunt.mongodb.net/test'), RegistrosModule, PersonasModule],
   controllers: [AppController],

@@ -26,7 +26,7 @@ export class RegistrosController {
         const registros = await this.registrosService.getRegistros();
         return res.status(HttpStatus.OK).json({
             
-            //atra vez de la propiedad platos que envie platos
+            //atra vez de la propiedad lugares que envie lugares
             registros
         });
     }

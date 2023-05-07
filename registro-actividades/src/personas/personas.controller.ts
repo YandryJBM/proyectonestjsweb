@@ -10,7 +10,7 @@ export class PersonasController {
     //cada una de estas peticiones usa el servicio ya que contiene los respectivos metodos para las peticiones 
     constructor(private personasService:PersonasService ){}
     
-    //peticion post, para crear un paciente con el uso de body apartir de postman.
+    //peticion post, para crear un persona con el uso de body apartir de postman.
     @Post('/crear')
     async createPost(@Res() res,@Body() createPersonaDTO:CreatePersonaDTO){
         const persona = await this.personasService.createPersona(createPersonaDTO);
@@ -21,7 +21,7 @@ export class PersonasController {
         });
     }
 
-    //peticion get, mostrara todo los datos que contendra el array de pacientes, almacenados en el mongodb.
+    //peticion get, mostrara todo los datos que contendra el array de persona, almacenados en el mongodb.
     @Get('/')
     async VerPersonas(@Res()res){
         const personas = await this.personasService.getPersonas();
@@ -35,7 +35,7 @@ export class PersonasController {
     @Get('/:id_p')
     async VerPersona(@Res()res , @Param('id_p')id_persona) {
         const persona = await this.personasService.getPersona(id_persona)
-        //VALIDACION , si no se encuentra el paciente lanza el error.
+        //VALIDACION , si no se encuentra el persona lanza el error.
         if(!persona)throw new NotFoundException('Persona no encontrado');
         return res.status(HttpStatus.OK).json(persona);
    }
@@ -44,7 +44,7 @@ export class PersonasController {
    @Delete('/eliminar/:id_p')
    async EliminarPersona(@Res()res, @Param('id_p')id_persona){
         const personaDelet = await this.personasService.deletePersona(id_persona)
-        //validacion si el paciente a eliminar no existe enviara un error.
+        //validacion si el persona a eliminar no existe enviara un error.
         if(!personaDelet)throw new NotFoundException('Persona no encontrado');
         return res.status(HttpStatus.OK).json({
             message: 'Persona eliminado..',
@@ -55,7 +55,7 @@ export class PersonasController {
    @Put('/modificar/:id_p')
    async modificarPersona(@Res()res,@Body()createPersonaDTO:CreatePersonaDTO,@Param('id_p')id_persona){
         const updatePersona = await this.personasService.updatePersona(id_persona,createPersonaDTO);
-        //validacion si el paciente modificado no existe enviara el error.
+        //validacion si el persona modificado no existe enviara el error.
         if(!updatePersona)throw new NotFoundException('Persona no encontrado');
         return res.status(HttpStatus.OK).json({
             message: 'Persona modificado',

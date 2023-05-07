@@ -9,7 +9,7 @@ export class LugaresController {
     //cada una de estas peticiones usa el metodo service ya que contiene los respectivos metodos para las peticiones 
     constructor(private lugaresService:LugaresService ){}
     
-    //peticion post para crear platos, apartir del body de postman 
+    //peticion post para crear lugares, apartir del body de postman 
     @Post('/crear')
     async createPost(@Res() res,@Body() createLugarDTO:CreateLugarDTO){
         const lugar = await this.lugaresService.createLugar(createLugarDTO);
@@ -20,7 +20,7 @@ export class LugaresController {
         });
     }
 
-    //peticion get, para obtener todo los platos dentro del array de este.
+    //peticion get, para obtener todo los lugares dentro del array de este.
     @Get('/')
     async VerLugares(@Res()res){
         const lugares = await this.lugaresService.getLugares();
@@ -29,7 +29,7 @@ export class LugaresController {
              lugares
         });
     }
-    //peticion get, para obtener un solo plato dentro del array de platos.
+    //peticion get, para obtener un solo plato dentro del array de lugares.
     @Get('/:id_l')
     async VerLugar(@Res()res , @Param('id_l')id_lugar) {
         const lugar = await this.lugaresService.getLugar(id_lugar)
@@ -57,7 +57,7 @@ export class LugaresController {
         if(!updateLugar)throw new NotFoundException('Plato no encontrado');
         return res.status(HttpStatus.OK).json({
             message: 'Lugar modificado',
-            //atra vez de la propiedad platos que envie platos
+            //atra vez de la propiedad lugares que envie lugares
             updateLugar
         });
    }
