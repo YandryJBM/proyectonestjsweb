@@ -10,7 +10,7 @@ export const RegistrosSchema = new Schema({
     }],
 
     //aplicando relacion, uso de ref dentro de la entidad Platos
-    id_platos:[{
+    id_lugares:[{
 
         type: Schema.Types.ObjectId,
         ref:"Lugares"
