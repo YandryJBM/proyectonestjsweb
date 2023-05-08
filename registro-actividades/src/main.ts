@@ -20,7 +20,7 @@ async function bootstrap() {
  SwaggerModule.setup("api/docs", app, document)
  //puerto
   app.enableCors();
-  await app.listen(process.env.PORT || 433);
+  await app.listen(process.env.PORT || 3000);
 //enlace para el hostGratuito --HEROKU 
 //https://pruebasunos.herokuapp.com/api/docs#/
 

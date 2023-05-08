@@ -22,7 +22,7 @@ export class LugaresController {
 
     //peticion get, para obtener todo los lugares dentro del array de este.
     @Get('/')
-    async VerLugares(@Res()res){
+    async VerLugares(@Res() res){
         const lugares = await this.lugaresService.getLugares();
         return res.status(HttpStatus.OK).json({
             
@@ -31,7 +31,7 @@ export class LugaresController {
     }
     //peticion get, para obtener un solo plato dentro del array de lugares.
     @Get('/:id_l')
-    async VerLugar(@Res()res , @Param('id_l')id_lugar) {
+    async VerLugar(@Res()res , @Param('id_l') id_lugar) {
         const lugar = await this.lugaresService.getLugar(id_lugar)
         //validacion, si el plato no existe manda error.
         if(!lugar)throw new NotFoundException('Lugar no encontrado');
@@ -40,7 +40,7 @@ export class LugaresController {
 
    //peticion delete, para eliminar un dato apartir de un id que sera enviado como parametro.
    @Delete('/eliminar/:id_l')
-   async EliminarLugar(@Res()res, @Param('id_l')id_lugar){
+   async EliminarLugar(@Res()res, @Param('id_l') id_lugar){
         const lugarDelet = await this.lugaresService.deleteLugar(id_lugar)
         //validacion si el plato no existe arroja error.
         if(!lugarDelet)throw new NotFoundException('Lugar no encontrado');
@@ -51,7 +51,7 @@ export class LugaresController {
    }
    //peticion put, para modificar un dato aparitr de la id_ es decir un parametro de envio
    @Put('/modificar/:id_l')
-   async modificarLugar(@Res()res,@Body()createLugarDTO:CreateLugarDTO,@Param('id_l')id_lugar){
+   async modificarLugar(@Res()res,@Body()createLugarDTO:CreateLugarDTO,@Param('id_l') id_lugar){
         const updateLugar = await this.lugaresService.updateLugar(id_lugar,createLugarDTO);
         //validacion, si el id, del plato no existe arroja un error.
         if(!updateLugar)throw new NotFoundException('Plato no encontrado');

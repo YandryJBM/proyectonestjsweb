@@ -23,7 +23,7 @@ export class PersonasController {
 
     //peticion get, mostrara todo los datos que contendra el array de persona, almacenados en el mongodb.
     @Get('/')
-    async VerPersonas(@Res()res){
+    async VerPersonas(@Res() res){
         const personas = await this.personasService.getPersonas();
         return res.status(HttpStatus.OK).json({
             
@@ -33,7 +33,7 @@ export class PersonasController {
 
     //peticion get, mostrara un dato apartir de su respectiva id. 
     @Get('/:id_p')
-    async VerPersona(@Res()res , @Param('id_p')id_persona) {
+    async VerPersona(@Res()res , @Param('id_p') id_persona) {
         const persona = await this.personasService.getPersona(id_persona)
         //VALIDACION , si no se encuentra el persona lanza el error.
         if(!persona)throw new NotFoundException('Persona no encontrado');
@@ -42,7 +42,7 @@ export class PersonasController {
 
    //peticion delete, eliminar un dato apartir del envio de una id.
    @Delete('/eliminar/:id_p')
-   async EliminarPersona(@Res()res, @Param('id_p')id_persona){
+   async EliminarPersona(@Res()res, @Param('id_p') id_persona){
         const personaDelet = await this.personasService.deletePersona(id_persona)
         //validacion si el persona a eliminar no existe enviara un error.
         if(!personaDelet)throw new NotFoundException('Persona no encontrado');
@@ -53,7 +53,7 @@ export class PersonasController {
    }
    //peticion put, modificara un dato apartir de el envio de un id, y el uso de body de postman
    @Put('/modificar/:id_p')
-   async modificarPersona(@Res()res,@Body()createPersonaDTO:CreatePersonaDTO,@Param('id_p')id_persona){
+   async modificarPersona(@Res()res,@Body()createPersonaDTO:CreatePersonaDTO,@Param('id_p') id_persona){
         const updatePersona = await this.personasService.updatePersona(id_persona,createPersonaDTO);
         //validacion si el persona modificado no existe enviara el error.
         if(!updatePersona)throw new NotFoundException('Persona no encontrado');

@@ -22,7 +22,7 @@ export class RegistrosController {
     }
     //peticion get para obtener los registros almacenados dentro de la mongodb
     @Get('/')
-    async getRegistros(@Res()res){
+    async getRegistros(@Res() res){
         const registros = await this.registrosService.getRegistros();
         return res.status(HttpStatus.OK).json({
             
@@ -32,7 +32,7 @@ export class RegistrosController {
     }
     //peticion get para obtener un registro apartir del envio de un parametro 
     @Get('/:id_R')
-    async getRegistro(@Res()res , @Param('id_R')id_registro) {
+    async getRegistro(@Res()res , @Param('id_R') id_registro) {
         const registro = await this.registrosService.getRegistro(id_registro)
         //validacion  si no existe el registro lanza un error
         if(!registro)throw new NotFoundException('Registro no encontrado');
@@ -41,7 +41,7 @@ export class RegistrosController {
 
    //peticion delete, para eliminar un dato apartir del envio de un parametro id_
    @Delete('/eliminar/:id_R')
-    async deletRegistro(@Res()res, @Param('id_R')id_registro){
+    async deletRegistro(@Res()res, @Param('id_R') id_registro){
         const RegistroDelet = await this.registrosService.deleteRegistro(id_registro)
         //validacion si no existe el registro lanza un error
         if(!RegistroDelet)throw new NotFoundException('Registro no encontrado');
@@ -53,7 +53,7 @@ export class RegistrosController {
       
     //peticion put, modificara un registro apartir del envio de un parametro y el uso del body.
     @Put('/modificar/:id_R')
-    async updateRegistro(@Res()res,@Body()createRegistroDTO:CreateRegistroDTO,@Param('id_R')id_registro){
+    async updateRegistro(@Res()res,@Body()createRegistroDTO:CreateRegistroDTO,@Param('id_R') id_registro){
         const updateRegistro = await this.registrosService.updateRegistro(id_registro,createRegistroDTO);
         //validacion si no se encuentra el registro lanzara un error.
         if(!updateRegistro)throw new NotFoundException('Registro no encontrado');
