@@ -8,7 +8,7 @@ import {CreatePersonaDTO} from './dto/personas.dto';
 //clase que sera usada dentro de controlador de persona, para el uso de las peticiones.
 @Injectable()
 export class PersonasService {
-    constructor(@InjectModel('Personas')private readonly  personaModel: Model<Personas> ){}
+    constructor(@InjectModel('Personas') private readonly  personaModel: Model<Personas> ){}
     
     //metodo get para obtener todo los personas
     async getPersonas():Promise<Personas[]>{

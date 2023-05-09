@@ -8,7 +8,7 @@ import {CreateRegistroDTO} from './dto/registros.dto';
 //clase que sera usada dentro de controlador de persona, para el uso de las peticiones.
 @Injectable()
 export class RegistrosService {
-    constructor(@InjectModel('Registros')private readonly registrosModel: Model<Registros> ){}
+    constructor(@InjectModel('Registros') private readonly registrosModel: Model<Registros> ){}
     //metodo get para obtener los registros del array.
     async getRegistros():Promise<Registros[]>{
         const Registros = await this.registrosModel.find()

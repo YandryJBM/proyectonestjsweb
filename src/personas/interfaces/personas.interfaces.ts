@@ -3,8 +3,8 @@ import {Document} from 'mongoose';
 
  export interface Personas extends Document{
       //atributos de la entidad personas
-      nombre:String;
-      identificacion: String;
-      edad: Number;
-      estatura: Number;
+      readonly nombre:String;
+      readonly identificacion: String;
+      readonly edad: Number;
+      readonly estatura: Number;
 }

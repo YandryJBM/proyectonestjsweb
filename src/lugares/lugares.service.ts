@@ -8,7 +8,8 @@ import {CreateLugarDTO} from './dto/lugares.dto';
 //clase que sera usada dentro de controlador de persona, para el uso de las peticiones.
 @Injectable()
 export class LugaresService {
-    constructor(@InjectModel('Lugares')private readonly  lugaresModel: Model<Lugares> ){}
+    constructor(
+        @InjectModel('Lugares') private readonly lugaresModel: Model<Lugares> ){}
 
     //metodo get para obtener todo los personas
     async getLugares():Promise<Lugares[]>{

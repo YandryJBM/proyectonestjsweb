@@ -2,10 +2,10 @@
 
 export class CreatePersonaDTO{
     //atributos asignados por el docente / persona.
-    nombre:string;
-    identificacion: string;
-    edad: number;
-    estatura: number;
+    readonly nombre:string;
+    readonly identificacion: string;
+    readonly edad: number;
+    readonly estatura: number;
     
 
 

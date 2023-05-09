@@ -1,12 +1,12 @@
 //Creacion de clase donde se enviaran los datos de la aplicacion cliente/Servidor
 export class CreateRegistroDTO{
     //atributos asignados por el docente
-    id_personas:String;
-    id_lugares:String;
-    fecha:string;
-    nombre_de_la_montana: string;
-    altura:string;
-    tiempo:string;
+    readonly id_personas:String;
+    readonly id_lugares:String;
+    readonly fecha:string;
+    readonly nombre_de_la_montana: string;
+    readonly altura:string;
+    readonly tiempo:string;
 
 }
 //de la aplicacion cliente va a recibir..

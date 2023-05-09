@@ -1,5 +1,5 @@
 //importacion de libreria y de clases y servicios que seran usados dentro del controlador
-import { Controller, Get, Post, Put, Delete, Res,HttpStatus,Body, Param,NotFoundException} from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Res,HttpStatus,Body, Param, Query, NotFoundException} from '@nestjs/common';
 import {CreateLugarDTO } from './dto/lugares.dto';//contiene los atributos cliente/servidor 
 import { LugaresService } from './lugares.service';//contiene metodos"peticiones".
 
@@ -15,7 +15,7 @@ export class LugaresController {
         const lugar = await this.lugaresService.createLugar(createLugarDTO);
         return res.status(HttpStatus.OK).json({
             message: 'Lugar ingresado Correctamente..',
-            lugar
+            lugar: lugar
 
         });
     }
@@ -40,7 +40,7 @@ export class LugaresController {
 
    //peticion delete, para eliminar un dato apartir de un id que sera enviado como parametro.
    @Delete('/eliminar/:id_l')
-   async EliminarLugar(@Res()res, @Param('id_l') id_lugar){
+   async EliminarLugar(@Res()res, @Query('id_l') id_lugar){
         const lugarDelet = await this.lugaresService.deleteLugar(id_lugar)
         //validacion si el plato no existe arroja error.
         if(!lugarDelet)throw new NotFoundException('Lugar no encontrado');
