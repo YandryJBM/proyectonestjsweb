@@ -1,1 +1,1 @@
-https://registro-actividades-2b7f8.firebaseapp.com/
+https://registro-actividades.herokuapp.com/api/docs
