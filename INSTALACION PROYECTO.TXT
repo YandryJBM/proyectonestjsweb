@@ -1,0 +1,5 @@
+npm install
+npm install --save @nestjs/swagger swagger-ui-express
+npm install --save-dev @nestjs/testing
+npm install mongoose
+npm run start
