@@ -21,8 +21,8 @@ async function bootstrap() {
  //puerto
   app.enableCors();
   await app.listen(process.env.PORT || 3000);
-//enlace para el hostGratuito --HEROKU 
-//https://pruebasunos.herokuapp.com/api/docs#/
+//enlace para el hostGratuito --Firebase
+//https://registro-actividades-2b7f8.web.app/
 
 }
 bootstrap();
