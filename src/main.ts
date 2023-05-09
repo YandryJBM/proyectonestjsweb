@@ -20,7 +20,7 @@ async function bootstrap() {
  SwaggerModule.setup("api/docs", app, document)
  //puerto
   await app.listen(process.env.PORT || 3000);
-//enlace para el hostGratuito --Firebase
+//enlace para el hostGratuito --heroku
 //https://registro-actividades.herokuapp.com/api/docs#/
 
 }
