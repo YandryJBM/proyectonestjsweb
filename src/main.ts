@@ -19,10 +19,9 @@ async function bootstrap() {
  //ruta que contendra swagger.
  SwaggerModule.setup("api/docs", app, document)
  //puerto
-  app.enableCors();
   await app.listen(process.env.PORT || 3000);
 //enlace para el hostGratuito --Firebase
-//https://registro-actividades-2b7f8.web.app/
+//https://registro-actividades.herokuapp.com/api/docs#/
 
 }
 bootstrap();
